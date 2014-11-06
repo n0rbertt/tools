@@ -1,0 +1,4 @@
+for i in /var/log/httpd/*
+do 
+	echo "" > $i
+done
