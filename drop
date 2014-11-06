@@ -1,0 +1,24 @@
+#!/bin/bash
+cat /var/log/httpd/access_log | awk '{print $1}' | grep -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' > /root/tools/blocklist
+SCRIPT=$(readlink -f "$0")
+SCRIPT_PATH=`dirname "$SCRIPT"`
+BLOCKLIST=$SCRIPT_PATH/blocklist
+
+trim() {
+    local var=$@
+    var="${var#"${var%%[![:space:]]*}"}"   # remove leading whitespace characters
+    var="${var%"${var##*[![:space:]]}"}"   # remove trailing whitespace characters
+    echo -n "$var"
+}
+
+for i in `cat $BLOCKLIST`; do
+IP=`iptables-save | grep $i`
+IP=`trim $IP`
+if [ -z "$IP" ]
+then
+echo "added $i";
+iptables -A INPUT -s $i -j DROP;
+else
+    echo "found $i"
+fi
+done
