@@ -1,0 +1,17 @@
+#!/bin/bash
+
+
+
+perms(){
+        echo "Fixing 755 Permissions."
+                find -type d -exec chmod 755 '{}' \;
+        echo "Fixing 644 Permissions.."
+                find -type f -exec chmod 644 '{}' \;
+        echo "Fixing Executable Permissions."
+                find -iname "*.pl" -exec chmod 755 '{}' \; -o -iname "*.cgi" -exec chmod 755 '{}' \; -o -iname "*.fcgi" -exec chmod 755 '{}' \;
+        
+}
+
+
+perms
+exit
