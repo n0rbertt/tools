@@ -7,7 +7,9 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias netstat='netstat -tulanp'
 alias c='clear'
-alias ll='ls -lah'
+alias ll='ls -lahf'
+alias la='ls -A'
+alias l='ls -CF'
 alias cd..='cd ..'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
@@ -28,7 +30,21 @@ alias cpuinfo='lscpu'
 alias wget='wget -c'
 alias df='df -H'
 alias du='du -ch'
-alias top='atop'
+alias ls='ls --color=auto'
+
+# don't put duplicate lines or lines starting with space in the history.
+HISTCONTROL=ignoreboth
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color) color_prompt=yes;;
+esac
 
 
 # Source global definitions
