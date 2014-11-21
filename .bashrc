@@ -4,6 +4,7 @@
 
 alias rm='rm -i'
 alias cp='cp -i'
+alias ..='cd ../'
 alias mv='mv -i'
 alias netstat='netstat -tulanp'
 alias c='clear'
@@ -37,6 +38,8 @@ HISTCONTROL=ignoreboth
 HISTSIZE=1000
 HISTFILESIZE=2000
 
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/root/tools/
+
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
@@ -46,8 +49,10 @@ case "$TERM" in
     xterm-color) color_prompt=yes;;
 esac
 
+export PS1="\[\e[00;36m\]\u\[\e[0m\]\[\e[00;31m\]@\[\e[0m\]\[\e[00;36m\]\h\[\e[0m\]\[\e[00;37m\]:\[\e[0m\]\[\e[00;32m\]\w\[\e[0m\]\[\e[00;37m\]\\$ \[\e[0m\]"
+
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+        . /etc/bashrc
 fi
