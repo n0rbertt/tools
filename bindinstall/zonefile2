@@ -1,0 +1,27 @@
+$ORIGIN domain.
+$TTL 86400 
+@       IN      SOA     ns6.domain.     admin@domain. (
+                        serial     ; Serial                     
+                        21600      ; refresh after 6 hours                     
+                        3600       ; retry after 1 hour                     
+                        604800     ; expire after 1 week                     
+                        86400 )    ; minimum TTL of 1 day  
+                     
+                           
+        IN      NS      ns6.domain.       
+        IN      NS      ns9.domain.        
+        
+        
+        IN      MX      10      mx.zoho.com.       
+        IN      MX      20      mx2.zoho.com.        
+
+        
+ns6     IN      A       IP
+ns9     IN      A       IP      
+
+                               
+
+domain. IN      A       IP
+www     IN      A       IP
+
+mail    IN      CNAME   business.zoho.com
