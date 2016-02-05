@@ -1,0 +1,30 @@
+$ORIGIN domain. 
+$TTL 86400 
+@	IN	SOA	ns1.domain.	hostmaster.domain. (
+			serial     ; Serial                     
+			21600      ; refresh after 6 hours                     
+			3600       ; retry after 1 hour                     
+			604800     ; expire after 1 week                     
+			86400 )    ; minimum TTL of 1 day  
+		     
+		           
+	IN	NS	ns1.domain.       
+	IN	NS	ns2.domain.        
+	
+	
+	IN	MX	10	mail.domain.       
+	IN	MX	20	mail2.domain.        
+
+	
+ns1	IN	A	IP
+ns2	IN	A	IP	
+
+			       
+
+domain.	IN	A	IP
+	
+mail	IN	A	IP
+mail2	IN	A	IP
+
+
+www	IN	CNAME	domain
