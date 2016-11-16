@@ -1,0 +1,3 @@
+will wget all links in links.txt
+
+# for i in $(cat links.txt); do wget $i ; done
