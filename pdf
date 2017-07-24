@@ -1,0 +1,4 @@
+#!/bin/bash
+cmd=$1
+man -t $cmd | ps2pdf - $cmd.pdf
+
