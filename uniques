@@ -1,0 +1,12 @@
+#!/bin/bash
+
+read -s FN
+echo 'Filename: '$FN
+#echo "counting $FN"
+lines=`sort $FN | wc -l`
+#echo "There are $lines lines..."
+echo "$lines lines..."
+
+ulines=`sort -u $FN | wc -l`
+#echo "with $ulines being unique"
+echo "$ulines being unique"
